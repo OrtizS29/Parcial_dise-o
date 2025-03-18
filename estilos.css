@@ -139,3 +139,63 @@ footer {
 footer p {
     margin: 0;
 }
+
+/* ---------TRADUCTOR------------- */
+/* Estilos del dropdown */
+.dropdown {
+    position: absolute;
+    right: 20px;
+    display: inline-block;
+    top: 50%;
+    transform: translateY(-50%); /* Centra verticalmente */
+}
+
+.dropbtn {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px 70px;
+    cursor: auto; /* Centra verticalmente */
+    display: flex;
+    align-items: center;
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: background 0.3s; /* Suaviza el cambio de color */
+}
+
+.dropbtn img {
+    width: 20px;
+    height: 20px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #113072;
+    min-width: 150px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content .opcion-idioma {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dropdown-content .opcion-idioma img {
+    width: 20px;
+    height: 15px;
+    margin-right: 8px;
+}
+
+.dropdown-content .opcion-idioma:hover {
+    background-color: #ddd;
+}
+
+/* Mostrar menú cuando el dropdown es activado */
+.dropdown:hover .dropdown-content {
+    display: block;
+}

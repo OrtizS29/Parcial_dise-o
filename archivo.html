@@ -10,16 +10,33 @@
     <header>
         <img id="avion" src="images/avion.png" alt="avion">
         <h1 id="titulo">Descubre Colombia</h1>
+        <!-- Selector de idioma con lista desplegable -->
+        <div class="dropdown">
+            <button class="dropbtn">
+                <img id="bandera-actual" src="images/bandera-es.png" alt="Bandera actual">
+                <span id="idioma-actual">Español (COP)</span>
+            </button>
+            <div class="dropdown-content">
+                <div class="opcion-idioma" onclick="cambiarIdioma('es')">
+                    <img src="images/bandera-es.png" alt="Español">
+                    <span>Español (COP)</span>
+                </div>
+                <div class="opcion-idioma" onclick="cambiarIdioma('en')">
+                    <img src="images/bandera-en.png" alt="Inglés">
+                    <span>Inglés (USD)</span>
+                </div>
+                <div class="opcion-idioma" onclick="cambiarIdioma('fr')">
+                    <img src="images/bandera-fr.png" alt="Francés">
+                    <span>Francés (EUR)</span>
+                </div>
+                <div class="opcion-idioma" onclick="cambiarIdioma('de')">
+                    <img src="images/bandera-de.png" alt="Alemán">
+                    <span>Alemán (EUR)</span>
+                </div>
+            </div>
+        </div>
     </header>
     
-    <!-- Selector de idioma -->
-    <select id="select-idioma">
-        <option value="es">Español</option>
-        <option value="en">Inglés</option>
-        <option value="fr">Francés</option>
-        <option value="de">Alemán</option>
-    </select>
-
     <div class="navbar-imagenes">
 
         <div class="croquis" >
