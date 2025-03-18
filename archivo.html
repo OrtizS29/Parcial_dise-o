@@ -9,10 +9,17 @@
 <body>
     <header>
         <img id="avion" src="images/avion.png" alt="avion">
-        <h1>Bienvenido a Colombia</h1>
-        
+        <h1 id="titulo">Descubre Colombia</h1>
     </header>
     
+    <!-- Selector de idioma -->
+    <select id="select-idioma">
+        <option value="es">Español</option>
+        <option value="en">Inglés</option>
+        <option value="fr">Francés</option>
+        <option value="de">Alemán</option>
+    </select>
+
     <div class="navbar-imagenes">
 
         <div class="croquis" >
@@ -21,7 +28,7 @@
         
         <div class="nav-item" onclick="location.href='#cartagena'">
             <img src="images/cartagena-nav.png" alt="Cartagena">
-            <div class="ciudad-nombre">Cartagena</div>
+            <div class="ciudad-nombre" >Cartagena</div>
         </div>
 
 
@@ -42,27 +49,27 @@
     </div>
     
     <section id="cartagena">
-        <h2>Cartagena</h2>
-        <p>Descripción de Cartagena...</p>
+        <h2 id="cartagena-titulo">Cartagena</h2>
+        <p id="cartagena-texto">Cartagena es una hermosa ciudad con playas y una rica historia colonial.</p>
     </section>
     
     <section id="bogota">
-        <h2>Bogotá</h2>
-        <p>Descripción de Bogotá...</p>
+        <h2 id="bogota-titulo">Bogotá</h2>
+        <p id="bogota-texto">Bogotá, la capital de Colombia, es conocida por su diversidad cultural.</p>
     </section>
     
     <section id="medellin">
-        <h2>Medellín</h2>
-        <p>Descripción de Medellín...</p>
+        <h2 id="medellin-titulo">Medellín</h2>
+        <p id="medellin-texto">Descripción de Medellín...</p>
     </section>
     
     <section id="cali">
-        <h2>Cali</h2>
-        <p>Descripción de Cali...</p>
+        <h2 id="cali-titulo">Cali</h2>
+        <p id="cali-texto">Descripción de Cali...</p>
     </section>
 
     <footer>
-        <p>© 2025 Todos los derechos reservados | Turismo Colombia</p>
+        <p id="footer-texto">© 2025 Todos los derechos reservados | Turismo Colombia</p>
     </footer>
 
     <script src="codigo.js"></script>
