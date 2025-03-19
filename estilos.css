@@ -365,7 +365,7 @@ footer p {
     background: #e4b700;
 }
 
-/* 📌 Estilos para la lista de comentarios */
+/* Estilos para la lista de comentarios */
 .review-list {
     max-width: 400px;
     margin: 20px auto;
@@ -396,7 +396,6 @@ footer p {
     color: #f5c518;
     font-size: 18px;
 }
-
 
 .footer-container {
     max-width: 1400px;

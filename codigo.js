@@ -194,6 +194,19 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    // Agregar un comentario fijado predeterminado
+    const defaultReview = document.createElement("div");
+    defaultReview.classList.add("review");
+    defaultReview.innerHTML = `
+        <img src="images/cris.png" alt="UsuarioP">
+        <div class="review-content">
+            <h4>Cris</h4>
+            <div class="review-stars">★★★★★</div>
+            <p>¡Que gran Página Eh!, Saludos del Bicho, Siuu!</p>
+        </div>
+    `;
+    reviewList.prepend(defaultReview); // Agregar comentario fijo al inicio
+
     // ⭐ Manejo de estrellas ⭐
     stars.forEach((star, index) => {
         star.addEventListener("mouseover", () => highlightStars(index));
