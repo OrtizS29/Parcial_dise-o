@@ -1,10 +1,25 @@
 // Se utilizara una API para traducir los textos LibreTranslate
 //EL tradcucotr con esta API
 async function traducirTexto(texto, idiomaDestino) {
-    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(texto)}&langpair=es|${idiomaDestino}`;
-    const respuesta = await fetch(url);
+    //Se ejecuto desde Docker
+    const url = "http://localhost:5000/translate";
+    //espera un JSON porque la API espera una estructura diferente
+    const respuesta = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            q: texto,
+            source: "es",   // El idioma original de la página
+            target: idiomaDestino,  // El idioma al que queremos traducir
+            format: "text",
+            api_key: ""   // LibreTranslate no requiere API key si está en local
+        })
+    });
+
     const datos = await respuesta.json();
-    return datos.responseData.translatedText;
+    return datos.translatedText;
 }
 
 // Textos de la página a traducir
@@ -45,8 +60,6 @@ function cambiarIdioma(idioma) {
     const traducciones = {
         "es": { titulo: "Descubre Colombia", moneda: "COP", bandera: "images/bandera-es.png", idioma: "Español (COP)" },
         "en": { titulo: "Discover Colombia", moneda: "USD", bandera: "images/bandera-en.png", idioma: "Inglés (USD)" },
-        "fr": { titulo: "Découvrez la Colombie", moneda: "EUR", bandera: "images/bandera-fr.png", idioma: "Francés (EUR)" },
-        "de": { titulo: "Entdecke Kolumbien", moneda: "EUR", bandera: "images/bandera-de.png", idioma: "Alemán (EUR)" }
     };
 
     document.getElementById("titulo").innerText = traducciones[idioma].titulo;

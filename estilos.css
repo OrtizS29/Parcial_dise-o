@@ -95,7 +95,7 @@ header img {
     object-fit: contain;
 }
 
-/* 📌 Estilos del texto sobre la imagen */
+/* Estilos del texto sobre la imagen */
 .ciudad-nombre {
     position: absolute;
     top: 50%;
@@ -110,9 +110,17 @@ header img {
     z-index: 2;
 }
 
-/* 📌 Mostrar el texto al hacer hover */
+/* Mostrar el texto al hacer hover */
 .nav-item:hover .ciudad-nombre {
     opacity: 1;
+}
+
+#avion {
+    position: absolute;
+    top: 20px; /* Ajusta la altura inicial */
+    left: -150px; /* Comienza fuera de la pantalla por la izquierda */
+    width: 120px; /* Ajusta el tamaño del avión */
+    transition: left 2.5s ease-in-out; /* Animación más fluida */
 }
 
 /* Secciones de contenido */
@@ -158,8 +166,6 @@ footer p {
     display: flex;
     align-items: center;
     border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    transition: background 0.3s; /* Suaviza el cambio de color */
 }
 
 .dropbtn img {
@@ -168,16 +174,25 @@ footer p {
 }
 
 .dropdown-content {
-    display: none;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
     position: absolute;
     background-color: #113072;
     min-width: 150px;
     border: 1px solid #ccc;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
     z-index: 1;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
 }
 
 .dropdown-content .opcion-idioma {
+    justify-content: center;  /* Centra horizontalmente */
     padding: 8px;
     display: flex;
     align-items: center;
@@ -192,7 +207,7 @@ footer p {
 }
 
 .dropdown-content .opcion-idioma:hover {
-    background-color: #ddd;
+    background: rgba(0, 0, 0, 0.4); /* Filtro oscuro */
 }
 
 /* Mostrar menú cuando el dropdown es activado */
