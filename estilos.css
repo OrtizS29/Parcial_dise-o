@@ -7,7 +7,6 @@ body {
     background-color: #E6B800;
 }
 
-
 header {
     position: fixed;
     background-color: #113072;
@@ -20,12 +19,34 @@ header {
     z-index: 1000;
 }
 
+
+#avion-container {
+    display: flex;
+    align-items: center;
+    width: 20%; /* Ajusta el tamaño del contenedor */
+}
+
+#avion {
+    position: absolute;
+    top: 20px; /* Ajusta la altura inicial */
+    left: -150px; /* Comienza fuera de la pantalla por la izquierda */
+    width: 120px; /* Ajusta el tamaño del avión */
+    transition: left 2.5s ease-in-out; /* Animación más fluida */
+}
+
+
+header a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
 header img {
     width: 180px; /* Ajusta el tamaño */
     position: absolute;
     bottom: 10px;
     left: 50px;
-    
 }
 
 /* Diseño del navbar */
@@ -35,8 +56,8 @@ header img {
     grid-template-columns: repeat(2, 1fr);
     /* Esto creará dos filas de igual tamaño */
     grid-template-rows: repeat(2, 1fr);
-    width: 100vw; /* Ocupar todo el ancho de la pantalla */
-    height: 100vh; /* Ocupar toda la altura de la pantalla */
+    width: 100vw; /*Ocupar todo el ancho de la pantalla*/
+    height: 100vh; /*Ocupar toda la altura de la pantalla*/
     gap: 10px; /* Espacio entre imágenes */ /* Espacio entre las imágenes */
     position: relative;
     background-color: white;
@@ -57,7 +78,8 @@ header img {
 /* Imágenes dentro de cada nav-item */
 .nav-item img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    /* height: 100%; */
     object-fit: cover; /* Ajustar imagen sin deformar */
     object-position: center; /* Centrar la imagen */
 }
@@ -83,7 +105,8 @@ header img {
     top: 50%;   
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px; /* Ajusta el tamaño para que no se vea gigante */
+    /* width: 500px; Ajusta el tamaño para que no se vea gigante */
+    max-width: 40%; /* Ajuste tamaño*/
     height: auto;
     z-index: 3; /* Asegura que esté encima de las imágenes */
     pointer-events: none; /* Evita que interfiera con el hover */
@@ -113,14 +136,6 @@ header img {
 /* Mostrar el texto al hacer hover */
 .nav-item:hover .ciudad-nombre {
     opacity: 1;
-}
-
-#avion {
-    position: absolute;
-    top: 20px; /* Ajusta la altura inicial */
-    left: -150px; /* Comienza fuera de la pantalla por la izquierda */
-    width: 120px; /* Ajusta el tamaño del avión */
-    transition: left 2.5s ease-in-out; /* Animación más fluida */
 }
 
 /* Secciones de contenido */
@@ -225,7 +240,8 @@ footer p {
     right: 20px;
     display: inline-block;
     top: 50%;
-    transform: translateY(-50%); /* Centra verticalmente */
+    transform: translateY(-50%); /*Centra verticalmente*/
+    
 }
 
 .dropbtn {
@@ -283,4 +299,381 @@ footer p {
 /* Mostrar menú cuando el dropdown es activado */
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.comment-section {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 350px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.comment-section h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.comment-section input,
+.comment-section textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.comment-section textarea {
+    height: 60px;
+    resize: none;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.rating span {
+    font-size: 25px;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.rating span:hover,
+.rating span.active {
+    color: #f5c518;
+}
+
+.comment-section button {
+    background: #f5c518;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.comment-section button:hover {
+    background: #e4b700;
+}
+
+/* 📌 Estilos para la lista de comentarios */
+.review-list {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.review {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review h4 {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.review p {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.review-stars {
+    color: #f5c518;
+    font-size: 18px;
+}
+
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 40px 20px;
+    text-align: left;
+    background-color: #113072;  /* Un tono más claro que el fondo principal */
+}
+
+.footer-logo h3 {
+    color: #f5f5f5;
+    font-size: 24px;
+    margin: 0 0 10px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.footer-logo p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+    color: #ecf0f1;
+}
+
+.footer-nav h4, .footer-social h4, .footer-contact h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    position: relative;
+    padding-bottom: 10px;
+    color: #ecf0f1;
+}
+
+.footer-nav h4:after, .footer-social h4:after, .footer-contact h4:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #3498db;  /* Acento azul suave */
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #3498db;  /* Acento azul suave */
+    transform: translateX(5px);
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    color: #bdc3c7;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateX(5px);
+    color: #3498db;  /* Acento azul suave */
+}
+
+.social-icon i {
+    font-size: 18px;
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.footer-contact p {
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    color: #bdc3c7;
+}
+
+.footer-contact i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+    color: #3498db;  /* Acento azul suave */
+}
+
+#footer-texto {
+    margin: 0;
+    font-size: 16px;
+    color: #95a5a6;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 992px) {
+    .footer-top {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .croquis {
+        width: 35%;
+    }
+    
+    .gallery-item img {
+        width: 180px;
+        height: 135px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .logo-container {
+        margin-bottom: 15px;
+    }
+    
+    .logo {
+        width: 50px;
+    }
+    
+    #titulo {
+        font-size: 1.5rem;
+    }
+    
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    #avion {
+        display: none;
+    }
+    
+    .dropdown {
+        margin-left: 0;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .navbar-imagenes {
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 200px);
+    }
+    
+    .croquis {
+        display: none;
+    }
+    
+    .ciudad-nombre {
+        opacity: 1;
+        font-size: 22px;
+    }
+    
+    .gallery-section {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+    
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    
+    .footer-nav h4:after, .footer-social h4:after, .footer-contact h4:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-links a:hover {
+        transform: translateX(0) scale(1.05);
+    }
+    
+    .social-icons {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .social-icon {
+        margin: 0 10px 10px 10px;
+    }
+    
+    .social-icon:hover {
+        transform: translateX(0) scale(1.05);
+    }
+    
+    .footer-contact p {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-imagenes {
+        grid-template-rows: repeat(4, 150px);
+    }
+    
+    .ciudad-nombre {
+        font-size: 18px;
+    }
+    
+    .gallery-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 80%;
+        margin: 3px;
+    }
+    
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        max-width: 280px;
+    }
+    
+    .gallery-grid {
+        gap: 10px;
+    }
+    
+    section {
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    .social-icon span {
+        display: none;
+    }
+    
+    .social-icon i {
+        font-size: 24px;
+        margin-right: 0;
+    }
+    
+    .footer-bottom {
+        padding: 10px 0;
+    }
+    
+    #footer-texto {
+        font-size: 14px;
+    }
 }
