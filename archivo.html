@@ -10,21 +10,22 @@
     <header>
         <img id="avion" src="images/avion.png" alt="avion">
         <h1 id="titulo">Descubre Colombia</h1>
+        <!-- <h1 id="titulo"><a href="#contacto"></a>Contactanos</h1> -->
         <img src="images/img-log.png" alt="">
         <!-- Selector de idioma con lista desplegable -->
         <div class="dropdown">
             <button class="dropbtn">
                 <img id="bandera-actual" src="images/bandera-es.png" alt="Bandera actual">
-                <span id="idioma-actual">Español (COP)</span>
+                <span id="idioma-actual">Español </span>
             </button>
             <div class="dropdown-content">
                 <div class="opcion-idioma" onclick="cambiarIdioma('es')">
                     <img src="images/bandera-es.png" alt="Español">
-                    <span>Español (COP)</span>
+                    <span>Español </span>
                 </div>
                 <div class="opcion-idioma" onclick="cambiarIdioma('en')">
                     <img src="images/bandera-en.png" alt="Inglés">
-                    <span>Inglés (USD)</span>
+                    <span>Inglés </span>
                 </div>
             </div>
         </div>
@@ -106,9 +107,75 @@
         <div id="gallery-cali" class="gallery-grid"></div>
     </section>
 
+    <div class="comment-section">
+        <h2>Comparte Tu Experiencia</h2>
+        <input type="text" id="name" placeholder="Ingresa tu nombre">
+        
+        <div class="rating">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        
+        <textarea id="comment" placeholder="Comparte tu experiencia..."></textarea>
+        <button id="comment-button">Publicar Comentario</button>
+    </div>
+
+    <div class="review-list">
+        <!-- Aquí se agregarán los comentarios dinámicamente -->
+    </div>
 
     <footer>
-        <p id="footer-texto">© 2025 Todos los derechos reservados | Turismo Colombia</p>
+        <footer class="main-footer">
+            <div class="footer-container">
+                <div class="footer-top">
+                    <div class="footer-logo">
+                        <h3>Descubre Colombia</h3>
+                        <p>  Explora la esencia de Colombia a través de sus ciudades más vibrantes, la historia y playas paradisíacas de Cartagena, sumérgete en la cultura innovadora de Medellín, siente la energía de Cali con su inigualable salsa y maravíllate con la majestuosidad de Bogotá. ¡Tu aventura comienza aquí!</p>
+                    </div>
+                    
+                    <div class="footer-nav">
+                        <h4>Enlaces</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Sobre Nosotros</a></li>
+                            <li><a href="#">Contacto</a></li>
+                            <li><a href="#">Términos y Condiciones</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-social">
+                        <h4>Síguenos</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">
+                                <i class="fa-brands fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fa-brands fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fa-brands fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fa-brands fa-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <h4>Contacto</h4>
+                        <p><i class="fas fa-envelope"></i> info@descubrecolombia.com</p>
+                        <p><i class="fas fa-phone"></i> +57 123 456 7890</p>
+                    </div>
+                </div>
+                
+                    <p id="footer-texto">© 2025 Todos los derechos reservados | Turismo Colombia</p>
+                </div>
+            </div>
+        
+        
     </footer>
 
     <script src="codigo.js"></script>

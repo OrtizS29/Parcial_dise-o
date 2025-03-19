@@ -65,8 +65,8 @@ async function traducirPagina(idiomaDestino) {
 
 function cambiarIdioma(idioma) {
     const traducciones = {
-        "es": { titulo: "Descubre Colombia", moneda: "COP", bandera: "images/bandera-es.png", idioma: "Español (COP)" },
-        "en": { titulo: "Discover Colombia", moneda: "USD", bandera: "images/bandera-en.png", idioma: "Inglés (USD)" },
+        "es": { titulo: "Descubre Colombia", bandera: "images/bandera-es.png", idioma: "Español " },
+        "en": { titulo: "Discover Colombia", bandera: "images/bandera-en.png", idioma: "Inglés " },
     };
 
     document.getElementById("titulo").innerText = traducciones[idioma].titulo;
@@ -179,5 +179,89 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// FORMULARIO
+document.addEventListener("DOMContentLoaded", function () {
+    const stars = document.querySelectorAll(".rating span");
+    const commentButton = document.querySelector("#comment-button");
+    const nameInput = document.querySelector("#name");
+    const commentInput = document.querySelector("#comment");
+    const reviewList = document.querySelector(".review-list");
 
+    let selectedRating = 0; // Guarda la calificación seleccionada
+
+    if (!reviewList) {
+        console.error("⚠️ Error: No se encontró '.review-list' en el HTML.");
+        return;
+    }
+
+    // Agregar un comentario fijado predeterminado
+    const defaultReview = document.createElement("div");
+    defaultReview.classList.add("review");
+    defaultReview.innerHTML = `
+        <img src="images/cris.png" alt="UsuarioP">
+        <div class="review-content">
+            <h4>Cris</h4>
+            <div class="review-stars">★★★★★</div>
+            <p>¡Que gran Página Eh!, Saludos del Bicho, Siuu!</p>
+        </div>
+    `;
+    reviewList.prepend(defaultReview); // Agregar comentario fijo al inicio
+
+    // ⭐ Manejo de estrellas ⭐
+    stars.forEach((star, index) => {
+        star.addEventListener("mouseover", () => highlightStars(index));
+        star.addEventListener("click", () => selectStars(index));
+        star.addEventListener("mouseout", resetStars);
+    });
+
+    function highlightStars(index) {
+        stars.forEach((star, i) => {
+            star.style.color = i <= index ? "#f5c518" : "#ccc";
+        });
+    }
+
+    function selectStars(index) {
+        selectedRating = index + 1;
+        highlightStars(index);
+    }
+
+    function resetStars() {
+        stars.forEach((star, i) => {
+            star.style.color = i < selectedRating ? "#f5c518" : "#ccc";
+        });
+    }
+
+    // 📌 Publicar comentario
+    commentButton.addEventListener("click", () => {
+        const name = nameInput.value.trim();
+        const comment = commentInput.value.trim();
+
+        console.log("📌 Datos ingresados:", { name, comment, selectedRating });
+
+        if (name === "" || comment === "" || selectedRating === 0) {
+            alert("❌ Por favor, completa todos los campos y selecciona una calificación.");
+            return;
+        }
+
+        // Crear comentario
+        const reviewItem = document.createElement("div");
+        reviewItem.classList.add("review");
+        reviewItem.innerHTML = `
+            <img src="images/usuario.png" alt="Usuario">
+            <div class="review-content">
+                <h4>${name}</h4>
+                <div class="review-stars">${"★".repeat(selectedRating)}${"☆".repeat(5 - selectedRating)}</div>
+                <p>${comment}</p>
+            </div>
+        `;
+
+        reviewList.prepend(reviewItem); // Agregar comentario
+
+        // Limpiar campos
+        nameInput.value = "";
+        commentInput.value = "";
+        selectedRating = 0;
+        resetStars();
+    });
+});
 
