@@ -25,16 +25,23 @@ async function traducirTexto(texto, idiomaDestino) {
 // Textos de la página a traducir
 const elementosTraducibles = {
     "titulo": "Descubre Colombia",
-    "cartagena-titulo": "Cartagena",
-    "cartagena-texto": "Cartagena es una hermosa ciudad con playas y una rica historia colonial.",
-    "bogota-titulo": "Bogotá",
-    "bogota-texto": "Bogotá, la capital de Colombia, es conocida por su diversidad cultural.",
-    "medellin-titulo": "Medellín",
-    "medellin-texto": "Descripción de Medellín...",
-    "cali-titulo": "Cali",
-    "cali-texto": "Descripción de Cali...",
+    "hotelCa": "Hoteles","hotelB":"Hoteles","hotelM":"Hoteles","hotelC":"Hoteles",
+    "gastroCa": "Gastronomía","gastroB":"Gastronomía","gastroM":"Gastronomía","gastroC":"Gastronomía",
+    "culCa": "Cultura","culB":"Cultura","culM":"Cultura","culC":"Cultura",
+    "atraCa": "Atracciones","atraB":"Atracciones","atraM":"Atracciones","atraC":"Atracciones",
     "footer-texto": "© 2025 Todos los derechos reservados | Turismo Colombia"
 };
+
+// Traducir los botones de todas las secciones
+document.querySelectorAll('.translate').forEach(function(button) {
+    // Obtener el valor de data-filter para identificar el botón
+    const dataFilter = button.getAttribute('data-filter');
+    
+    // Si existe una traducción para este data-filter, se aplica
+    if (elementosTraducibles[dataFilter]) {
+        button.textContent = elementosTraducibles[dataFilter];
+    }
+});
 
 // Función para traducir **toda la página** asegurando que todos los textos estén listos antes de cambiarlos
 async function traducirPagina(idiomaDestino) {

@@ -10,6 +10,7 @@
     <header>
         <img id="avion" src="images/avion.png" alt="avion">
         <h1 id="titulo">Descubre Colombia</h1>
+        <img src="images/img-log.png" alt="">
         <!-- Selector de idioma con lista desplegable -->
         <div class="dropdown">
             <button class="dropbtn">
@@ -56,74 +57,54 @@
             <div class="ciudad-nombre">Cali</div>
         </div>
     </div>
-    
-    <section id="cartagena">
-        <h2 id="cartagena-titulo">Cartagena</h2>
-        <p id="cartagena-texto">Cartagena es una hermosa ciudad con playas y una rica historia colonial.</p>
-    </section>
-    
-    <section id="bogota">
-        <h2 id="bogota-titulo">Bogotá</h2>
-        <p id="bogota-texto">Bogotá, la capital de Colombia, es conocida por su diversidad cultural.</p>
-    </section>
-    
-    <section id="medellin">
-        <h2 id="medellin-titulo">Medellín</h2>
-        <p id="medellin-texto">Descripción de Medellín...</p>
-    </section>
-    
-    <section id="cali">
-        <h2 id="cali-titulo">Cali</h2>
-        <p id="cali-texto">Descripción de Cali...</p>
+ 
+        <!-- Galería de Cartagena -->
+    <section id="cartagena" class="gallery-section">
+        <h2>Cartagena</h2>
+        <div class="gallery-filters">
+            <button id="hotelC" class="filter-btn active" data-filter="hoteles">Hoteles</button>
+            <button id="gastroC" class="filter-btn" data-filter="cartagena-gastronomia">Gastronomía</button>
+            <button id="culC" class="filter-btn" data-filter="cartagena-cultura">Cultura</button>
+            <button id="atraC" class="filter-btn" data-filter="cartagena-atracciones">Atracciones</button>
+        </div>
+        <div id="gallery-cartagena" class="gallery-grid"></div>
     </section>
 
-    <!-- Galería de Cartagena -->
-<section id="cartagena" class="gallery-section">
-    <h2>Cartagena</h2>
-    <div class="gallery-filters">
-        <button class="filter-btn active" data-filter="cartagena-hoteles">Hoteles</button>
-        <button class="filter-btn" data-filter="cartagena-gastronomia">Gastronomía</button>
-        <button class="filter-btn" data-filter="cartagena-cultura">Cultura</button>
-        <button class="filter-btn" data-filter="cartagena-atracciones">Atracciones</button>
-    </div>
-    <div id="gallery-cartagena" class="gallery-grid"></div>
-</section>
+    <!-- Galería de Bogotá -->
+    <section id="bogota" class="gallery-section">
+        <h2>Bogotá</h2>
+        <div class="gallery-filters">
+            <button id="hotelB" class="filter-btn active translate" data-filter="bogota-hoteles">Hoteles</button>
+            <button id="gastroB" class="filter-btn translate" data-filter="bogota-gastronomia">Gastronomía</button>
+            <button id="culB" class="filter-btn translate" data-filter="bogota-cultura">Cultura</button>
+            <button id="atraB" class="filter-btn translate" data-filter="bogota-atracciones">Atracciones</button>
+        </div>
+        <div id="gallery-bogota" class="gallery-grid"></div>
+    </section>
 
-<!-- Galería de Bogotá -->
-<section id="bogota" class="gallery-section">
-    <h2>Bogotá</h2>
-    <div class="gallery-filters">
-        <button class="filter-btn active" data-filter="bogota-hoteles">Hoteles</button>
-        <button class="filter-btn" data-filter="bogota-gastronomia">Gastronomía</button>
-        <button class="filter-btn" data-filter="bogota-cultura">Cultura</button>
-        <button class="filter-btn" data-filter="bogota-atracciones">Atracciones</button>
-    </div>
-    <div id="gallery-bogota" class="gallery-grid"></div>
-</section>
+    <!-- Galería de Medellín -->
+    <section id="medellin" class="gallery-section">
+        <h2>Medellín</h2>
+        <div class="gallery-filters">
+            <button id="hotelM" class="filter-btn active" data-filter="medellin-hoteles">Hoteles</button>
+            <button id="gastroM" class="filter-btn" data-filter="medellin-gastronomia">Gastronomía</button>
+            <button id="culM" class="filter-btn" data-filter="medellin-cultura">Cultura</button>
+            <button id="atraM" class="filter-btn" data-filter="medellin-atracciones">Atracciones</button>
+        </div>
+        <div id="gallery-medellin" class="gallery-grid"></div>
+    </section>
 
-<!-- Galería de Medellín -->
-<section id="medellin" class="gallery-section">
-    <h2>Medellín</h2>
-    <div class="gallery-filters">
-        <button class="filter-btn active" data-filter="medellin-hoteles">Hoteles</button>
-        <button class="filter-btn" data-filter="medellin-gastronomia">Gastronomía</button>
-        <button class="filter-btn" data-filter="medellin-cultura">Cultura</button>
-        <button class="filter-btn" data-filter="medellin-atracciones">Atracciones</button>
-    </div>
-    <div id="gallery-medellin" class="gallery-grid"></div>
-</section>
-
-<!-- Galería de Cali -->
-<section id="cali" class="gallery-section">
-    <h2>Cali</h2>
-    <div class="gallery-filters">
-        <button class="filter-btn active" data-filter="cali-hoteles">Hoteles</button>
-        <button class="filter-btn" data-filter="cali-gastronomia">Gastronomía</button>
-        <button class="filter-btn" data-filter="cali-cultura">Cultura</button>
-        <button class="filter-btn" data-filter="cali-atracciones">Atracciones</button>
-    </div>
-    <div id="gallery-cali" class="gallery-grid"></div>
-</section>
+    <!-- Galería de Cali -->
+    <section id="cali" class="gallery-section">
+        <h2>Cali</h2>
+        <div class="gallery-filters">
+            <button id="hotelCa" class="filter-btn active" data-filter="cali-hoteles">Hoteles</button>
+            <button id="gastroCa" class="filter-btn" data-filter="cali-gastronomia">Gastronomía</button>
+            <button id="culCa" class="filter-btn" data-filter="cali-cultura">Cultura</button>
+            <button id="atraCa" class="filter-btn" data-filter="cali-atracciones">Atracciones</button>
+        </div>
+        <div id="gallery-cali" class="gallery-grid"></div>
+    </section>
 
 
     <footer>
