@@ -116,18 +116,39 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    // 📌 Función para cargar la galería de una ciudad
+    const textosPersonalizados = {
+        "cartagena-hotel1.jpg": "Hotel Boutique en Cartagena",
+        "cartagena-hotel2.jpg": "Vista al mar en Cartagena",
+        "bogota-hotel1.jpg": "Hotel en el centro de Bogotá",
+        // Agrega más textos personalizados aquí
+    };
+    
     function cargarGaleria(ciudad) {
         const galeria = document.getElementById(`gallery-${ciudad}`);
         if (!galeria) return;
-
+    
         galeria.innerHTML = ""; // Limpiar antes de agregar nuevas imágenes
-
+    
         Object.entries(imagenes[ciudad]).forEach(([categoria, listaImagenes]) => {
             listaImagenes.forEach(img => {
                 const div = document.createElement("div");
                 div.classList.add("gallery-item", `${ciudad}-${categoria}`);
-                div.innerHTML = `<img src="images/${img}" alt="${categoria}">`;
+    
+                // Crear el texto que se mostrará sobre la imagen
+                const texto = document.createElement("div");
+                texto.classList.add("gallery-text");
+                texto.innerText = textosPersonalizados[img] || `Imagen de ${categoria} en ${ciudad}`; // Texto personalizado o genérico
+    
+                // Crear la imagen
+                const imagen = document.createElement("img");
+                imagen.src = `images/${img}`;
+                imagen.alt = `${categoria}`;
+    
+                // Agregar la imagen y el texto al contenedor
+                div.appendChild(imagen);
+                div.appendChild(texto);
+    
+                // Agregar el contenedor a la galería
                 galeria.appendChild(div);
             });
         });
@@ -157,4 +178,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
 

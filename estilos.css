@@ -145,17 +145,20 @@ section {
 }
 
 .filter-btn {
-    padding: 10px;
+    padding: 10px 20px;
     margin: 5px;
     border: none;
     background-color: #0077b6;
     color: white;
     cursor: pointer;
     border-radius: 5px;
+    transition: all 0.3s ease; /* Transición suave para todas las propiedades */
 }
 
-.filter-btn.active {
-    background-color: #023e8a;
+.filter-btn:hover {
+    background-color: #990101; /* Cambio de color */
+    transform: scale(1.1); /* Escala */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
 .gallery-grid {
@@ -183,7 +186,7 @@ section {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
     color: white;
     padding: 5px 10px;
     font-size: 14px;
@@ -191,11 +194,11 @@ section {
     border-radius: 5px;
     text-align: center;
     transition: opacity 0.3s ease-in-out;
-    opacity: 0;
+    opacity: 0; /* Ocultar por defecto */
 }
 
 .gallery-item:hover .gallery-text {
-    opacity: 1;
+    opacity: 1; /* Mostrar el texto al hacer hover */
 }
 
 
