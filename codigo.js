@@ -91,25 +91,45 @@ document.addEventListener("DOMContentLoaded", function () {
     // 📌 Imágenes organizadas por ciudad y categoría
     const imagenes = {
         cartagena: {
-            hoteles: ["cartagena-hotel1.jpg", "cartagena-hotel2.jpg"],
+            hoteles: [
+                "cartagena-hotel1.jpg",
+                "cartagena-hotel2.jpg",
+                "cartagena-hotel3.jpg", // Nueva imagen
+                "cartagena-hotel4.jpg"  // Nueva imagen
+            ],
             gastronomia: ["cartagena-comida1.jpg", "cartagena-comida2.jpg"],
             cultura: ["cartagena-cultura1.jpg", "cartagena-cultura2.jpg"],
             atracciones: ["cartagena-atraccion1.jpg", "cartagena-atraccion2.jpg"]
         },
         bogota: {
-            hoteles: ["bogota-hotel1.jpg", "bogota-hotel2.jpg"],
+            hoteles: [
+                "bogota-hotel1.jpg",
+                "bogota-hotel2.jpg",
+                "bogota-hotel3.jpg", // Nueva imagen
+                "bogota-hotel4.jpg"  // Nueva imagen
+            ],
             gastronomia: ["bogota-comida1.jpg", "bogota-comida2.jpg"],
             cultura: ["bogota-cultura1.jpg", "bogota-cultura2.jpg"],
             atracciones: ["bogota-atraccion1.jpg", "bogota-atraccion2.jpg"]
         },
         medellin: {
-            hoteles: ["medellin-hotel1.jpg", "medellin-hotel2.jpg"],
+            hoteles: [
+                "medellin-hotel1.jpg",
+                "medellin-hotel2.jpg",
+                "medellin-hotel3.jpg", // Nueva imagen
+                "medellin-hotel4.jpg"  // Nueva imagen
+            ],
             gastronomia: ["medellin-comida1.jpg", "medellin-comida2.jpg"],
             cultura: ["medellin-cultura1.jpg", "medellin-cultura2.jpg"],
             atracciones: ["medellin-atraccion1.jpg", "medellin-atraccion2.jpg"]
         },
         cali: {
-            hoteles: ["cali-hotel1.jpg", "cali-hotel2.jpg"],
+            hoteles: [
+                "cali-hotel1.jpg",
+                "cali-hotel2.jpg",
+                "cali-hotel3.jpg", // Nueva imagen
+                "cali-hotel4.jpg"  // Nueva imagen
+            ],
             gastronomia: ["cali-comida1.jpg", "cali-comida2.jpg"],
             cultura: ["cali-cultura1.jpg", "cali-cultura2.jpg"],
             atracciones: ["cali-atraccion1.jpg", "cali-atraccion2.jpg"]
@@ -129,28 +149,30 @@ document.addEventListener("DOMContentLoaded", function () {
     
         galeria.innerHTML = ""; // Limpiar antes de agregar nuevas imágenes
     
-        Object.entries(imagenes[ciudad]).forEach(([categoria, listaImagenes]) => {
-            listaImagenes.forEach(img => {
-                const div = document.createElement("div");
-                div.classList.add("gallery-item", `${ciudad}-${categoria}`);
+        // Cargar solo las imágenes de la categoría "hoteles" al inicio
+        const categoria = "hoteles"; // Categoría por defecto
+        const listaImagenes = imagenes[ciudad][categoria];
     
-                // Crear el texto que se mostrará sobre la imagen
-                const texto = document.createElement("div");
-                texto.classList.add("gallery-text");
-                texto.innerText = textosPersonalizados[img] || `Imagen de ${categoria} en ${ciudad}`; // Texto personalizado o genérico
+        listaImagenes.forEach(img => {
+            const div = document.createElement("div");
+            div.classList.add("gallery-item", `${ciudad}-${categoria}`);
     
-                // Crear la imagen
-                const imagen = document.createElement("img");
-                imagen.src = `images/${img}`;
-                imagen.alt = `${categoria}`;
+            // Crear el texto que se mostrará sobre la imagen
+            const texto = document.createElement("div");
+            texto.classList.add("gallery-text");
+            texto.innerText = `Imagen de ${categoria} en ${ciudad}`; // Texto personalizado
     
-                // Agregar la imagen y el texto al contenedor
-                div.appendChild(imagen);
-                div.appendChild(texto);
+            // Crear la imagen
+            const imagen = document.createElement("img");
+            imagen.src = `images/${img}`;
+            imagen.alt = `${categoria}`;
     
-                // Agregar el contenedor a la galería
-                galeria.appendChild(div);
-            });
+            // Agregar la imagen y el texto al contenedor
+            div.appendChild(imagen);
+            div.appendChild(texto);
+    
+            // Agregar el contenedor a la galería
+            galeria.appendChild(div);
         });
     }
 
