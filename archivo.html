@@ -30,6 +30,14 @@
             </div>
         </div>
     </header>
+
+    <nav>
+        <ul>
+            <li><a href="archivo.html">Destinos</a></li>
+            <li><a href="#experiencia">Experiencias</a></li>
+            <li><a href="#contacto">Contáctenos</a></li>
+        </ul>
+    </nav>
     
     <div class="navbar-imagenes">
 
@@ -107,8 +115,9 @@
         <div id="gallery-cali" class="gallery-grid"></div>
     </section>
 
-    <div class="comment-section">
-        <h2>Comparte Tu Experiencia</h2>
+    <!-- SECCION DE EPXERIENCIAS Y COMENTARIOS DE USUARIOS -->
+    <div class="comment-section" id="experiencia">
+        <h2 id="com" >Comparte Tu Experiencia</h2>
         <input type="text" id="name" placeholder="Ingresa tu nombre">
         
         <div class="rating">
@@ -123,7 +132,7 @@
         <!-- Aquí se agregarán los comentarios dinámicamente -->
     </div>
 
-    <footer>
+    <footer id="contacto">
         <footer class="main-footer">
             <div class="footer-container">
                 <div class="footer-top">
@@ -135,21 +144,20 @@
                     <div class="footer-nav">
                         <h4>Enlaces</h4>
                         <ul class="footer-links">
-                            <li><a href="#">Inicio</a></li>
-                            <li><a href="#">Sobre Nosotros</a></li>
-                            <li><a href="#">Contacto</a></li>
-                            <li><a href="#">Términos y Condiciones</a></li>
+                            <li><a href="#avion">Inicio</a></li>
+                            <li><a href="#cartagena">Destinos</a></li>
+                            <li><a href="#experiencia">Experiencias</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-social">
                         <h4>Síguenos</h4>
                         <div class="social-icons">
-                            <a href="#" class="social-icon">
+                            <a href="https://www.facebook.com/profile.php?id=61567127305996" class="social-icon">
                                 <i class="fa-brands fa-facebook-f"></i>
                                 <span>Facebook</span>
                             </a>
-                            <a href="#" class="social-icon">
+                            <a href="https://www.instagram.com/rodolfo123196/" class="social-icon">
                                 <i class="fa-brands fa-instagram"></i>
                                 <span>Instagram</span>
                             </a>
@@ -157,7 +165,7 @@
                                 <i class="fa-brands fa-twitter"></i>
                                 <span>Twitter</span>
                             </a>
-                            <a href="#" class="social-icon">
+                            <a href="https://www.youtube.com/watch?v=2yMhjHURW5A" class="social-icon">
                                 <i class="fa-brands fa-youtube"></i>
                                 <span>YouTube</span>
                             </a>
@@ -173,9 +181,7 @@
                 
                     <p id="footer-texto">© 2025 Todos los derechos reservados | Turismo Colombia</p>
                 </div>
-            </div>
-        
-        
+            </div> 
     </footer>
 
     <script src="codigo.js"></script>
