@@ -87,114 +87,80 @@ function cambiarIdioma(idioma) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    // 📌 Lista de ciudades
     const ciudades = ["cartagena", "bogota", "medellin", "cali"];
 
-    // 📌 Imágenes organizadas por ciudad y categoría
     const imagenes = {
         cartagena: {
-            hoteles: [
-                "cartagena-hotel1.jpg",
-                "cartagena-hotel2.jpg",
-                "cartagena-hotel3.jpg", // Nueva imagen
-                "cartagena-hotel4.jpg"  // Nueva imagen
-            ],
+            hoteles: ["cartagena-hotel1.jpg", "cartagena-hotel2.jpg", "cartagena-hotel3.jpg", "cartagena-hotel4.jpg"],
             gastronomia: ["cartagena-comida1.jpg", "cartagena-comida2.jpg"],
             cultura: ["cartagena-cultura1.jpg", "cartagena-cultura2.jpg"],
             atracciones: ["cartagena-atraccion1.jpg", "cartagena-atraccion2.jpg"]
         },
         bogota: {
-            hoteles: [
-                "bogota-hotel1.jpg",
-                "bogota-hotel2.jpg",
-                "bogota-hotel3.jpg", // Nueva imagen
-                "bogota-hotel4.jpg"  // Nueva imagen
-            ],
+            hoteles: ["bogota-hotel1.jpg", "bogota-hotel2.jpg", "bogota-hotel3.jpg", "bogota-hotel4.jpg"],
             gastronomia: ["bogota-comida1.jpg", "bogota-comida2.jpg"],
             cultura: ["bogota-cultura1.jpg", "bogota-cultura2.jpg"],
             atracciones: ["bogota-atraccion1.jpg", "bogota-atraccion2.jpg"]
         },
         medellin: {
-            hoteles: [
-                "medellin-hotel1.jpg",
-                "medellin-hotel2.jpg",
-                "medellin-hotel3.jpg", // Nueva imagen
-                "medellin-hotel4.jpg"  // Nueva imagen
-            ],
+            hoteles: ["medellin-hotel1.jpg", "medellin-hotel2.jpg", "medellin-hotel3.jpg", "medellin-hotel4.jpg"],
             gastronomia: ["medellin-comida1.jpg", "medellin-comida2.jpg"],
             cultura: ["medellin-cultura1.jpg", "medellin-cultura2.jpg"],
             atracciones: ["medellin-atraccion1.jpg", "medellin-atraccion2.jpg"]
         },
         cali: {
-            hoteles: [
-                "cali-hotel1.jpg",
-                "cali-hotel2.jpg",
-                "cali-hotel3.jpg", // Nueva imagen
-                "cali-hotel4.jpg"  // Nueva imagen
-            ],
+            hoteles: ["cali-hotel1.jpg", "cali-hotel2.jpg", "cali-hotel3.jpg", "cali-hotel4.jpg"],
             gastronomia: ["cali-comida1.jpg", "cali-comida2.jpg"],
             cultura: ["cali-cultura1.jpg", "cali-cultura2.jpg"],
             atracciones: ["cali-atraccion1.jpg", "cali-atraccion2.jpg"]
         }
     };
 
-    const textosPersonalizados = {
-        "cartagena-hotel1.jpg": "Hotel Boutique en Cartagena",
-        "cartagena-hotel2.jpg": "Vista al mar en Cartagena",
-        "bogota-hotel1.jpg": "Hotel en el centro de Bogotá",
-        // Agrega más textos personalizados aquí
-    };
-    
     function cargarGaleria(ciudad) {
         const galeria = document.getElementById(`gallery-${ciudad}`);
         if (!galeria) return;
-    
-        galeria.innerHTML = ""; // Limpiar antes de agregar nuevas imágenes
-    
-        // Cargar solo las imágenes de la categoría "hoteles" al inicio
-        const categoria = "hoteles"; // Categoría por defecto
-        const listaImagenes = imagenes[ciudad][categoria];
-    
-        listaImagenes.forEach(img => {
-            const div = document.createElement("div");
-            div.classList.add("gallery-item", `${ciudad}-${categoria}`);
-    
-            // Crear el texto que se mostrará sobre la imagen
-            const texto = document.createElement("div");
-            texto.classList.add("gallery-text");
-            texto.innerText = `Imagen de ${categoria} en ${ciudad}`; // Texto personalizado
-    
-            // Crear la imagen
-            const imagen = document.createElement("img");
-            imagen.src = `images/${img}`;
-            imagen.alt = `${categoria}`;
-    
-            // Agregar la imagen y el texto al contenedor
-            div.appendChild(imagen);
-            div.appendChild(texto);
-    
-            // Agregar el contenedor a la galería
-            galeria.appendChild(div);
+
+        galeria.innerHTML = "";
+
+        Object.entries(imagenes[ciudad]).forEach(([categoria, listaImagenes]) => {
+            listaImagenes.forEach(img => {
+                const div = document.createElement("div");
+                div.classList.add("gallery-item", `${ciudad}-${categoria}`);
+
+                const texto = document.createElement("div");
+                texto.classList.add("gallery-text");
+                texto.innerText = `Imagen de ${categoria} en ${ciudad}`;
+
+                const imagen = document.createElement("img");
+                imagen.src = `images/${img}`;
+                imagen.alt = `${categoria}`;
+
+                div.appendChild(imagen);
+                div.appendChild(texto);
+                galeria.appendChild(div);
+
+                if (categoria !== "hoteles") {
+                    div.style.display = "none";
+                }
+            });
         });
     }
 
-    // 📌 Cargar las galerías de todas las ciudades al inicio
     ciudades.forEach(ciudad => cargarGaleria(ciudad));
 
-    // 📌 Manejo de filtros
     document.querySelectorAll(".filter-btn").forEach(boton => {
         boton.addEventListener("click", function () {
-            const [ciudad, categoria] = this.dataset.filter.split("-");
+            const filtro = this.dataset.filter;
+            const [ciudad, categoria] = filtro.split("-");
 
             document.querySelectorAll(`#gallery-${ciudad} .gallery-item`).forEach(item => {
                 item.style.display = "none";
             });
 
-            document.querySelectorAll(`.${ciudad}-${categoria}`).forEach(item => {
+            document.querySelectorAll(`#gallery-${ciudad} .${filtro}`).forEach(item => {
                 item.style.display = "block";
             });
 
-            // Actualizar botones activos
             document.querySelectorAll(`#gallery-${ciudad} .filter-btn`).forEach(btn => {
                 btn.classList.remove("active");
             });
