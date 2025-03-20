@@ -29,6 +29,8 @@ const elementosTraducibles = {
     "gastroCa": "Gastronomía","gastroB":"Gastronomía","gastroM":"Gastronomía","gastroC":"Gastronomía",
     "culCa": "Cultura","culB":"Cultura","culM":"Cultura","culC":"Cultura",
     "atraCa": "Atracciones","atraB":"Atracciones","atraM":"Atracciones","atraC":"Atracciones",
+    "com":"Comparte Tu Experiencia",
+    "comment-button":"Publicar Comentario",
     "footer-texto": "© 2025 Todos los derechos reservados | Turismo Colombia"
 };
 

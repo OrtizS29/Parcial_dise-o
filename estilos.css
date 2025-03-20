@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -19,6 +20,10 @@ header {
     z-index: 1000;
 }
 
+/* Scroll suave para los redireccionamientos en la pagina */
+html {
+    scroll-behavior: smooth;
+}
 
 #avion-container {
     display: flex;
@@ -34,19 +39,44 @@ header {
     transition: left 2.5s ease-in-out; /* Animación más fluida */
 }
 
-
-header a {
-    text-decoration: none;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
 header img {
     width: 180px; /* Ajusta el tamaño */
     position: absolute;
     bottom: 10px;
     left: 50px;
+}
+
+/* Navbar debajo del */
+nav {
+    background-color: #0A2E50; /* Color negro como en la imagen */
+    padding: 3px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: inline-block;
+    position: relative;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
 }
 
 /* Diseño del navbar */
